@@ -1,0 +1,83 @@
+Austin Herring
+System Architecture I
+Programming Assignment 1
+email: awh44@drexel.edu
+
+The two programs submitted, minmax_iterative and minmax_recursive, are MIPS
+assembly language interpretations of the iterative and recursive minmax
+algorithms, respectively, as based on the provided minmax_iterative.cpp and
+minmax_recursive.cpp files. Both the programs take an array and then find and
+output the minimum and maximum values in the array. The programs were
+written using Notepad++ on Windows 7, and I tested them with the 9.1.9
+version of QtSpim on Windows.
+
+Running either program is fairly simple. Simply load it into SPIM and set it
+to run. It will take the array established in the asm file, find its
+minimum and maximum values, and output them  to the console in the
+format MinMax[type] = [min], [max] . To test a different array, simply find
+the .data part of the file and change the "1,2,3,4,5,6,7,8,9,10" labeled as
+"A" to the new array. Also make sure to change the "10" in line 15 to the
+number of elements in the new array.
+
+There are two minor assumptions about input. First is that array elements
+will not be overly large. I did not do precise testing, but inputs must
+remain reasonably small (e.g., 4000000000 causes an incorrect value to be
+calculated as the max if it's the biggest element). Although I did not test
+this extensively either, it is assumed the number of array elements will
+remain reasonable as well.
+
+I tested both programs using the following arrays, trying to test a unique
+condition with each of them:
+	1			- one element
+	1,2		- two elements in increasing order
+	2,1		- two elements in decreasing order
+	1,2,3		- three elements in increasing order
+	3,2,1		- three elements in decreasing order
+	1,2,3,4,5,6,7,8,9,10
+				- ten elements in incresing order
+	3,5,6,2,7,9,10,1,4,8
+				- ten elements in "random" order
+	3,5,6,2,7,9,10,1,4,8,3,5,6,2,7,9,10,1,4,8
+				- ten elements in "random" order repeated
+	-3,-4,-7 - three negative elements
+	-4,-3,-2,-1,0,1,2,3,4
+				- nine elements with negative/positive/zero mix
+	2342,234,-234,20293,2932,3,2993,209,592,50,2
+				- "random" elements with large numbers, negative number mixed in
+Because all of these tests, as well as a few other undocumented
+ones, returned the correct minimum and maximum elements, the program appears
+to be working correctly. In addition, in the recursive program, the stack
+pointer always returns to its inital value once the program finishes
+running, again indicating the program is working correctly.
+
+There is nothing all that special about my program. Getting more experience
+working with assembly was nice, and it was somewhat easy to complete. Using
+the knowledge from the MIPS lab and using the corresponding programs as
+templates, I was able to understand what I was doing. From
+there, I was able to simply follow the C++ versions step by step and
+translate them to assembly easily. In fact, doing this, I was able to get
+both programs working the first time I ran them. (With one minor exception -
+I flipped the logic in one line so that minmax_iterative calculated the max
+twice instead of both the min and the max. After switching the line, though,
+it ran perfectly.) The one thing I may not have done correctly, or at least
+not "cleanly," is use the stack to save variables when calling another
+function in the recursive version of the algorithm. However, the program
+works fine, so I am content with the way I wrote it.
+
+I don't think there's any way that this lab could necessarily be improved
+for future students. It's a good introduction to slightly more complex
+algorithms, including recursive ones, than "compute x^y," as in the previous
+lab.
+
+CONSOLE OUTPUT:
+	FROM minmax_iterative.asm:
+		"MinMaxIt = 1, 10"
+	FROM minmax_recursive.asm:
+		"MinMaxRec = 1, 10"
+
+The submitted files correspond to the "What to Turn In" numbers in the
+following way:
+	1. description
+	2. minmax_iterative.asm (iterative version of minmax)
+		minmax_recursive.asm (recursive version of minmax)
+	3. description
