@@ -1,0 +1,51 @@
+Austin Herring
+Systems Architecture 1
+Lab 1: Introduction to SPIM
+email: awh44@drexel.edu
+
+The program submitted for this lab, power.asm, is a simple MIPS assembly
+program which takes two inputs (referred to as "x" and "y"), and computes
+the value of one to the power of the other, i.e., x^y, and outputs it to the
+screen. It was written using Notepad++ on Windows 7, and I tested it with
+the 9.1.9 version of QtSpim on Windows.
+
+There is nothing special about running the program. After loading the
+program into SPIM and running it, simply enter the base and power inputs as
+direcred.
+
+There are two minor assumptions about the input: first, that the second input,
+"y", will be nonnegative (i.e., >= 0); second, the combination of x and y
+will not cause an overflow. If the calculated value is too large for 32
+bits, the program may experience an error or return an incorrect value.
+
+I tested several different cases of x^y, including special cases such as
+exponents of zero or negative bases, and they all performed as expected.
+Specific test cases are listed below:
+x^0, for x = 2, 7; always returned 1
+1^2 = 1^5 = 1
+2^3 = 8
+(-2)^3 = -8
+(-2)^4 = 16
+7^7 = 823543
+8^6 = 262144
+
+Based on these test cases, as well as a few other undocumented ones, the
+program appears to be working fine.
+
+My experience with completing the project was very educational. When
+originally tracing through the program I found it tedious and confusing.
+However, after doing more reading and returning to it at a later date, it
+became much clearer, and I very easily understood what each instruction did.
+Once I understood the instructions, which the trace certainly helped with,
+writing the power program became very simple, as it only required a few
+tweaks to the original sum program.
+
+I do not think there need to be any major changes made to this lab for the
+benefit of future students. It's fairly effective in teaching about the
+working of MIPS and SPIM.
+
+The files cover "what to turn in" in the following way:
+1. console_output.txt
+2. trace.txt
+3. power.asm, power_console_output.txt, and (documentation) description
+4. description

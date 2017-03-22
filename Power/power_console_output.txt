@@ -1,0 +1,3 @@
+Enter base (x). 2
+Enter power (y). 6
+x^y = 64
